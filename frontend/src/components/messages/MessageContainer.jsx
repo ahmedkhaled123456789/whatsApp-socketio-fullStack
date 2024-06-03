@@ -23,7 +23,7 @@ const MessageContainer = () => {
           <div className=" flex gap-2 items-center  bg-gray-200 px-4 py-2 mb-2">
             {/* <span className='label-text'>To:</span>{" "} */}
             <span className="w-[40px] images rounded-full">
-              <img src={selectedConversation.profileImg} alt="image" />
+              <img src={selectedConversation.profileImg?selectedConversation.profileImg: selectedConversation.profilePic} alt="image" />
             </span>
 
             <span className="text-gray-900 font-bold">

@@ -42,7 +42,7 @@ export const resizeImage = (req, res, next) => {
 // Signup Controller
 export const signup = async (req, res) => {
   try {
-    const { fullName, username, password, confirmPassword, gender ,profileImg} = req.body;
+    const { fullName, username, password, confirmPassword, gender,profileImg} = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords don't match" });
@@ -56,17 +56,19 @@ export const signup = async (req, res) => {
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+// https://avatar-placeholder.iran.liara.run/
 
-    // const profilePic = gender === "male"
-    //   ? `https://avatar.iran.liara.run/public/boy?username=${username}`
-    //   : `https://avatar.iran.liara.run/public/girl?username=${username}`;
+const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
+    
 
     const newUser = new User({
-      fullName,
+      fullName, 
       username,
       password: hashedPassword,
       gender,
       profileImg,
+      profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
       createdAt: new Date(),
     });
 
@@ -79,6 +81,7 @@ export const signup = async (req, res) => {
       fullName: newUser.fullName,
       username: newUser.username,
       profileImg: newUser.profileImg,
+      profilePic: newUser.profilePic,
       createdAt: newUser.createdAt,
     });
   } catch (error) {
