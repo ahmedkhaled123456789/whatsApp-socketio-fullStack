@@ -94,7 +94,7 @@ const Setting = () => {
             </div>
           </div>
         </div>
-<div className="logs mt-5 flex gap-3 cursor-pointer font-bold text-black">
+<div className="logs mt-[75px] flex gap-3 cursor-pointer font-bold text-black">
 <LogoutButton    /> Log Out
 </div>
         
