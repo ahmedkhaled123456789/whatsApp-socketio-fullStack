@@ -1,0 +1,52 @@
+.loading-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #f0f0f0;
+	text-align: center;
+}
+
+.loading-logo  {
+	 font-size: 30px;
+	margin-bottom: 20px;
+}
+
+.loading-bar {
+	width: 50%;
+	height: 4px;
+	background-color: #e0e0e0;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.loading-bar-progress {
+	width: 0;
+	height: 100%;
+	background-color: #25d366;
+	animation: load 3s infinite;
+}
+
+@keyframes load {
+	0% {
+		width: 0;
+	}
+	50% {
+		width: 100%;
+	}
+	100% {
+		width: 0;
+	}
+}
+
+.loading-text p {
+	margin: 0;
+	font-size: 18px;
+	color: #555;
+}
+
+.subtitle {
+	font-size: 14px;
+	color: #888;
+}
