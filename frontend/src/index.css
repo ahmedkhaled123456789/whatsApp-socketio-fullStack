@@ -1,7 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
 	/* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/bg.png"); */
 
@@ -11,6 +15,7 @@ body {
 	background-position: center;
   padding: 0;
   margin: 0;
+
 }
 
 /* dark mode looking scrollbar */
@@ -74,7 +79,9 @@ display: none;
 .images img{
    border-radius: 50%;
  }
-
+.content_setting{
+   overflow: auto;
+}
 
  .image_message{
   border: 3px solid #fff;

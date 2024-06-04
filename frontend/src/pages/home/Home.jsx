@@ -6,7 +6,7 @@ const Home = () => {
   const [open,setOpen]=useState(false)
 
 	return (
-		<div className='h-screen  flex w-full   rounded-lg overflow-hidden bg-white   backdrop-filter backdrop-blur-lg bg-opacity-0'>
+		<div className='h-screen flex w-full p-0    overflow-hidden bg-white   backdrop-filter backdrop-blur-lg bg-opacity-0'>
 			<Sidebar open={open} setOpen={setOpen} />
        <MessageContainer  open={open} setOpen={setOpen}/>
  			

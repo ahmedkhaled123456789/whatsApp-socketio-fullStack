@@ -59,11 +59,11 @@ const SignUp = () => {
 
 						<div className="mt-4">
 							<label className="label p-2">
-								<span className="text-base label-text">Email</span>
+								<span className="text-base label-text">User Name</span>
 							</label>
 							<input
-								type="email"
-								placeholder="Email"
+								type="text"
+								placeholder="user name"
 								className="w-full input input-bordered h-10"
 								value={inputs.username}
 								onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
