@@ -29,7 +29,7 @@ const Message = ({ message }) => {
       </div>
       {
         isImage ? (
-          <div className=" image_message  w-[300px] h-[400px]     rounded">
+          <div className=" image_message  w-[250px] h-[300px]     rounded">
             <img  className="w-full h-full object-cover rounded" src={message.message} alt="message" />
           
         </div>

@@ -2,6 +2,7 @@
 import { useAuthContext } from "../../context/AuthContext";
 import { useSocketContext } from "../../context/SocketContext";
 import { extractTime } from "../../utils/extractTime";
+
 import useConversation from "../../zustand/useConversation";
 
 const Conversation = ({ conversation, lastIdx }) => {
@@ -31,7 +32,7 @@ const Conversation = ({ conversation, lastIdx }) => {
 				<div className='flex flex-col flex-1'>
 					<div className='flex gap-3 justify-between'>
 						<p className='font-bold text-black'>{conversation.fullName}</p>
-						<span className='text-xl'>{formattedTime}</span>
+						{/* <span className='text-xl'>{formattedTime}</span> */}
 					</div>
 				</div>
 			</div>

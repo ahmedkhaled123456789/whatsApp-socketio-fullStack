@@ -1,27 +1,39 @@
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import useConversation from "../../zustand/useConversation";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
+import { FaArrowLeft } from "react-icons/fa6";
 import { useAuthContext } from "../../context/AuthContext";
 
-const MessageContainer = () => {
+ const MessageContainer = ({open,setOpen}) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-
   useEffect(() => {
     // cleanup function (unmounts)
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
+ // Array of background photos
+//  const photos = [];
+
+ // Select a random background from the photos array
+//  const background = photos[Math.floor(Math.random() * photos.length)];
+   
+
   return (
-    <div className="w-full md:min-w-[450px] flex flex-col">
+    <div className={open ? "conversation_active flex flex-col justify-between w-full hide_section md:min-w-[450px]  ":"w-full hide_section  md:min-w-[450px] flex flex-col justify-between"}>
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
           {/* Header */}
-          <div className=" flex gap-2 items-center  bg-gray-200 px-4 py-2 mb-2">
+          <div className=" flex  gap-2 items-center   bg-gray-200 px-4 py-2 mb-2">
             {/* <span className='label-text'>To:</span>{" "} */}
+            <span className={open? "hide_icon cursor-pointer" : " cursor-pointer"}>
+
+            <FaArrowLeft onClick={() => setOpen(false)} />
+            </span>
+            
             <span className="w-[40px] images rounded-full">
               <img src={selectedConversation.profileImg?selectedConversation.profileImg: selectedConversation.profilePic} alt="image" />
             </span>
@@ -30,8 +42,13 @@ const MessageContainer = () => {
               {selectedConversation.fullName}
             </span>
           </div>
+           
           <Messages />
-          <MessageInput />
+          
+          
+           <MessageInput />
+ 
+          
         </>
       )}
     </div>

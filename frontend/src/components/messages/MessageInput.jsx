@@ -10,7 +10,7 @@ const MessageInput = () => {
   const [message, setMessage] = useState("");
   const [image, setImage] = useState(null);
   const { loading, sendMessage } = useSendMessage();
-  const [open, setOpen] = useState(false);
+  const [openEm, setOpenEm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const MessageInput = () => {
   const onEmojiClick = (event, emojiObject) => {
 
     setMessage((prev) => prev + emojiObject.emoji);
-    setOpen(false);
+    setOpenEm(false);
   };
 
   const handleImage = async(e) => {
@@ -40,7 +40,7 @@ const MessageInput = () => {
       <div className="bg-gray-200 p-4 flex items-center gap-2">
         <form className="flex items-center gap-2 w-full" onSubmit={handleSubmit}>
           <div className="cursor-pointer emoji">
-            <FaRegFaceSmileWink onClick={() => setOpen(!open)} />
+            <FaRegFaceSmileWink onClick={() => setOpenEm(!openEm)} />
           </div>
           <div className="cursor-pointer">
             <label htmlFor="file" className="cursor-pointer">
@@ -53,15 +53,7 @@ const MessageInput = () => {
               onChange={handleImage}
             />
           </div>
-          {/* {image && (
-            <div className="image-preview">
-              <img
-                src={URL.createObjectURL(image)}
-                alt="Preview"
-                className="h-10 w-10 object-cover rounded"
-              />
-            </div>
-          )} */}
+          
           <div className="w-full relative">
             <input
               type="text"
@@ -79,8 +71,8 @@ const MessageInput = () => {
           </div>
         </form>
       </div>
-      {open && (
-        <div className="picker">
+      {openEm && (
+        <div className="picker w-full">
           <Picker
             pickerStyle={{ width: "100%" }}
             onEmojiClick={onEmojiClick}

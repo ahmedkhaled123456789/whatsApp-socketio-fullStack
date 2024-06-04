@@ -68,6 +68,8 @@ display: none;
 
 .epr_-6npj90 {
   border-radius: 0 !important;
+  width: 100% !important;
+  height: 300px !important;
 }
 .images img{
    border-radius: 50%;
@@ -76,14 +78,42 @@ display: none;
 
  .image_message{
   border: 3px solid #fff;
- }
-/* .emoji{
-  position:relative;
-}
 
-.picker{
-  position:absolute;
-  bottom:50px;
-  left:0;
-   
-} */
+ }
+.hide_icon{
+  display: none;
+
+}
+ @media (max-width: 375px){
+  .text_header {
+font-size: 20px;
+  }
+
+ .image_message{
+ width: 200px;
+ height: 300px;  
+ }
+ }
+
+ @media (max-width: 768px){
+  .hide_section{
+    display: none;
+   }
+   .slider{
+    width: 100%;
+   }
+   .side_hide{
+    display: none;
+   }
+   .conversation_active{
+    display: block;
+    display: flex;
+
+   }
+   .hide_icon{
+    display: block;
+  
+  }
+  
+ }
+ 
